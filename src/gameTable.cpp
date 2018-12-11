@@ -1,13 +1,16 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include "GameObject.cpp"
+#include <vector>
 
 class GameTable{
 public:
   GameTable(){
-    player = GameObject()
-
+    this->player = GameObject("data/1B.png");
+    this->enemies.push_back(GameObject("data/7.png"));
+    this->enemies.push_back(GameObject("data/sprite.png"));
   }
 
-  GameObject player, enemy1, enemy2;
+  GameObject player;
+  std::vector<GameObject> enemies;
 }
