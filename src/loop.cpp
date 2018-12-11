@@ -1,7 +1,8 @@
-#include "objects.cpp"
+#include "gameObject.cpp"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include "handler.cpp"
+#include "gameTable.cpp"
 
 class Loop{
 
@@ -9,16 +10,20 @@ public:
   void run(){
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(1600, 900), "Game");
-    // Load a player sprite to display
-
+    // Load game sprites
+    GameTable table = GameTable();
     // Load a music to play
     sf::Music music;
     music.openFromFile("data/8bitmusic.ogg");
     // Play the music
     music.setLoop(true);
     music.play();
-    player.setPosition(sf::Vector2f(800, 450));
-    spaceship.setPosition(sf::Vector2f(200, 200));
+    table.player.setPosition(sf::Vector2f(800, 450));
+    table.enemies[0].setPosition(sf::Vector2f(200, 200));
+    table.enemies[1].setPosition(sf::Vector2f(1200, 350));
+
+    Handler handler = Handler();
+
     sf::Time t = sf::milliseconds(5);
     sf::Clock clock;
 
@@ -36,13 +41,14 @@ public:
       }
       window.clear();
 
+      handler.handleMovement(table.player, table.enemies);
 
-
-      window.draw(player.sprite);
-      window.draw(spaceship.sprite);
+      window.draw(table.player.sprite);
+      window.draw(table.enemies[0].sprite);
+      window.draw(table.enemies[1].sprite);
       window.display();
     }
 
   }
 
-}
+};

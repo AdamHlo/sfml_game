@@ -1,4 +1,4 @@
-#include "objects.cpp"
+#include "gameObject.cpp"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
@@ -30,27 +30,27 @@ public:
     }
     return false;
   }
-  
+
 
   void handleMovement(GameObject player, std::vector<GameObject> enemies){
 
     if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left) and player.getPosition().x > 0)
-      and !collistionWithEnemy(player, enemies, sf::Vector2f(-this->movementSpeed, 0))))
+      and !collistionWithEnemy(player, enemies, sf::Vector2f(-this->movementSpeed, 0)))
     {
       player.move(sf::Vector2f(-this->movementSpeed, 0));
     }
     if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Right) and (player.getPosition().x + player.getTextureRect().width < 1600))
-      and !collistionWithEnemy(player, enemies, sf::Vector2f(this->movementSpeed, 0))))
+      and !collistionWithEnemy(player, enemies, sf::Vector2f(this->movementSpeed, 0)))
     {
       player.move(sf::Vector2f(this->movementSpeed, 0));
     }
     if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up) and player.getPosition().y > 0)
-      and !collistionWithEnemy(player, enemies, sf::Vector2f(0, -this->movementSpeed))))
+      and !collistionWithEnemy(player, enemies, sf::Vector2f(0, -this->movementSpeed)))
     {
       player.move(sf::Vector2f(0, -this->movementSpeed));
     }
     if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Down) and (player.getPosition().y + player.getTextureRect().height) < 900)
-      and !collistionWithEnemy(player, enemies, sf::Vector2f(0, this->movementSpeed))))
+      and !collistionWithEnemy(player, enemies, sf::Vector2f(0, this->movementSpeed)))
     {
       player.move(sf::Vector2f(0, this->movementSpeed));
     }
@@ -60,4 +60,4 @@ public:
 private:
   int movementSpeed = 5;
 
-}
+};

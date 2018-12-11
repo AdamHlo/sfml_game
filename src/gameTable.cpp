@@ -1,6 +1,6 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
-#include "GameObject.cpp"
+#include "gameObject.cpp"
 #include <vector>
 
 class GameTable{
@@ -13,4 +13,4 @@ public:
 
   GameObject player;
   std::vector<GameObject> enemies;
-}
+};
