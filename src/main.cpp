@@ -1,7 +1,7 @@
 #include "loop.cpp"
 
 int main(){
-  Loop loop = Loop():
+  Loop loop = Loop();
   loop.run();
   return 0;
 }

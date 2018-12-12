@@ -1,43 +1,51 @@
-#include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include "gameObject.h"
 #include <string>
 
-class GameObject{
+sf::Vector2f  GameObject::getLeftTop(){
 
-  public:
+  return sprite.getPosition();
 
-    GameObject(std::string filePath){
+}
 
-      this->texture.loadFromFile(filePath);
-      this->sprite.setTexture(texture);
 
-    }
+sf::Vector2f  GameObject::getRightBottom(){
 
-    sf::Vector2f getLeftTop(){
-      return sprite.getPosition();
-    }
+  return sf::Vector2f(sprite.getPosition().x + sprite.getTextureRect().width, sprite.getPosition().y + sprite.getTextureRect().height);
 
-    sf::Vector2f getRightBottom(){
-      return sf::Vector2f(sprite.getPosition().x + sprite.getTextureRect().width, sprite.getPosition().y + sprite.getTextureRect().height);
-    }
+}
 
-    sf::Vector2f getPosition(){
-      return sprite.getPosition();
-    }
 
-    sf::IntRect getTextureRect(){
-      return sprite.getTextureRect();
-    }
+sf::Vector2f  GameObject::getPosition(){
 
-    void move(sf::Vector2f vec){
-      sprite.move(vec);
-    }
+  return sprite.getPosition();
 
-    void setPosition(sf::Vector2f vec){
-      sprite.setPosition(vec);
-    }
+}
 
-    sf::Texture texture;
-    sf::Sprite sprite;
 
-};
+sf::IntRect GameObject::getTextureRect(){
+
+  return sprite.getTextureRect();
+
+}
+
+void GameObject::move(sf::Vector2f vec){
+
+  sprite.move(vec);
+
+}
+
+
+void GameObject::setPosition(sf::Vector2f vec){
+
+  sprite.setPosition(vec);
+
+}
+
+
+GameObject::GameObject(std::string filePath){
+
+  this->texture.loadFromFile(filePath);
+  this->sprite.setTexture(texture);
+
+}

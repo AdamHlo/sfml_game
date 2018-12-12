@@ -1,4 +1,3 @@
-#include "gameObject.cpp"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include "handler.cpp"

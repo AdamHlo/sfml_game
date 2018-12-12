@@ -1,6 +1,10 @@
-#include "gameObject.cpp"
+#ifndef HANDLER_H
+#define HANDLER_H
+#include "gameObject.h"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+
+
 
 class Handler{
 public:
@@ -61,3 +65,5 @@ private:
   int movementSpeed = 5;
 
 };
+
+#endif

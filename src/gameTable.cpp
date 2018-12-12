@@ -1,7 +1,10 @@
+#ifndef GAMETABLE_H
+#define GAMETABLE_H
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
-#include "gameObject.cpp"
+#include "gameObject.h"
 #include <vector>
+#include <string>
 
 class GameTable{
 public:
@@ -14,3 +17,5 @@ public:
   GameObject player;
   std::vector<GameObject> enemies;
 };
+
+#endif
