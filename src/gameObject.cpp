@@ -1,5 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include "gameObject.h"
+#include "gameObject.hpp"
 #include <string>
 
 sf::Vector2f  GameObject::getLeftTop(){

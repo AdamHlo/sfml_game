@@ -1,6 +1,6 @@
-#include "loop.h"
-#include "gameTable.h"
-#include "handler.h"
+#include "loop.hpp"
+#include "gameTable.hpp"
+#include "handler.hpp"
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <iostream>

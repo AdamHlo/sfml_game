@@ -1,5 +1,5 @@
-#include "gameTable.h"
-#include "gameObject.h"
+#include "gameTable.hpp"
+#include "gameObject.hpp"
 
 
 GameTable::GameTable(){
