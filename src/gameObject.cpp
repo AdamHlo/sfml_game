@@ -43,9 +43,11 @@ void GameObject::setPosition(sf::Vector2f vec){
 }
 
 
-GameObject::GameObject(std::string filePath){
+GameObject::GameObject(std::string filePath) {
 
   this->texture.loadFromFile(filePath);
   this->sprite.setTexture(texture);
 
 }
+
+GameObject::GameObject(){}

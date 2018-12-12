@@ -6,10 +6,15 @@
 #include <string>
 
 class GameTable{
+
 public:
+
   GameTable();
+
   GameObject player;
+
   std::vector<GameObject> enemies;
+
 };
 
 #endif

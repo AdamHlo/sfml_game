@@ -10,6 +10,8 @@ public:
 
   GameObject(std::string filePath);
 
+  GameObject();
+
   sf::Vector2f getLeftTop();
 
   sf::Vector2f getRightBottom();

@@ -1,5 +1,6 @@
 #include "handler.h"
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 bool Handler::collistionCourse(GameObject obj1, GameObject obj2, sf::Vector2f vec){
 

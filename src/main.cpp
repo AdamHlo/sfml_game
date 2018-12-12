@@ -1,4 +1,4 @@
-#include "loop.cpp"
+#include "loop.h"
 
 int main(){
   Loop loop = Loop();

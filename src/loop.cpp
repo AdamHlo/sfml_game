@@ -3,6 +3,8 @@
 #include "handler.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include <iostream>
+#include <vector>
 
 void Loop::run(){
   // Create the main window
@@ -24,6 +26,7 @@ void Loop::run(){
   sf::Time t = sf::milliseconds(5);
   sf::Clock clock;
 
+
   while (window.isOpen()){
 
     sf::sleep(t);
@@ -44,6 +47,7 @@ void Loop::run(){
     window.draw(table.enemies[0].sprite);
     window.draw(table.enemies[1].sprite);
     window.display();
+
   }
 
 }
