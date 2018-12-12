@@ -17,9 +17,9 @@ void Loop::run(){
   // Play the music
   music.setLoop(true);
   music.play();
-  table.player.setPosition(sf::Vector2f(800, 450));
-  table.enemies[0].setPosition(sf::Vector2f(200, 200));
-  table.enemies[1].setPosition(sf::Vector2f(1200, 350));
+  table.player->setPosition(sf::Vector2f(800, 450));
+  table.enemies[0]->setPosition(sf::Vector2f(200, 200));
+  table.enemies[1]->setPosition(sf::Vector2f(1200, 350));
 
   Handler handler = Handler();
 
@@ -43,9 +43,9 @@ void Loop::run(){
 
     handler.handleMovement(table.player, table.enemies);
 
-    window.draw(table.player.sprite);
-    window.draw(table.enemies[0].sprite);
-    window.draw(table.enemies[1].sprite);
+    window.draw(*table.player->sprite);
+    window.draw(*table.enemies[0]->sprite);
+    window.draw(*table.enemies[1]->sprite);
     window.display();
 
   }

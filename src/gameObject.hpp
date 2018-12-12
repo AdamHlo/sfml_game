@@ -3,6 +3,7 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <string>
+#include <memory>
 
 class GameObject{
 
@@ -24,8 +25,8 @@ public:
 
   void setPosition(sf::Vector2f vec);
 
-  sf::Texture texture;
-  sf::Sprite sprite;
+  std::unique_ptr<sf::Texture> texture;
+  std::unique_ptr<sf::Sprite> sprite;
 
 };
 
