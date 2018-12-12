@@ -4,7 +4,6 @@
 #include <SFML/Graphics.hpp>
 
 
-
 class Handler{
 public:
 
