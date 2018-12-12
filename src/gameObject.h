@@ -6,24 +6,24 @@
 
 class GameObject{
 
-  public:
+public:
 
-    GameObject(std::string filePath);
+  GameObject(std::string filePath);
 
-    sf::Vector2f getLeftTop();
+  sf::Vector2f getLeftTop();
 
-    sf::Vector2f getRightBottom();
+  sf::Vector2f getRightBottom();
 
-    sf::Vector2f getPosition();
+  sf::Vector2f getPosition();
 
-    sf::IntRect getTextureRect();
+  sf::IntRect getTextureRect();
 
-    void move(sf::Vector2f vec);
+  void move(sf::Vector2f vec);
 
-    void setPosition(sf::Vector2f vec);
+  void setPosition(sf::Vector2f vec);
 
-    sf::Texture texture;
-    sf::Sprite sprite;
+  sf::Texture texture;
+  sf::Sprite sprite;
 
 };
 
