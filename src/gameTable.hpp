@@ -12,9 +12,9 @@ public:
 
   GameTable();
 
-  std::unique_ptr<GameObject> player;
+  std::shared_ptr<GameObject> player;
 
-  std::vector<std::unique_ptr<GameObject>> enemies;
+  std::vector<std::shared_ptr<GameObject>> enemies;
 
 };
 

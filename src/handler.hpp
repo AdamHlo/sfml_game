@@ -9,11 +9,11 @@ class Handler{
 
 public:
 
-  bool collistionCourse(std::unique_ptr<GameObject> obj1, std::unique_ptr<GameObject> obj2, sf::Vector2f vec);
+  bool collistionCourse(std::shared_ptr<GameObject> obj1, std::shared_ptr<GameObject> obj2, sf::Vector2f vec);
 
-  bool collistionWithEnemy(std::unique_ptr<GameObject> player, std::vector<std::unique_ptr<GameObject>> enemies, sf::Vector2f direction);
+  bool collistionWithEnemy(std::shared_ptr<GameObject> player, std::vector<std::shared_ptr<GameObject>> enemies, sf::Vector2f direction);
 
-  void handleMovement(std::unique_ptr<GameObject> player, std::vector<std::unique_ptr<GameObject>> enemies);
+  void handleMovement(std::shared_ptr<GameObject> player, std::vector<std::shared_ptr<GameObject>> enemies);
 
 private:
 
