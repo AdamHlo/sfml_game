@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <memory>
-bool Handler::collistionCourse(std::shared_ptr<GameObject> obj1, std::shared_ptr<GameObject> obj2, sf::Vector2f vec){
+bool Handler::collistionCourse(GameObject* obj1, GameObject* obj2, sf::Vector2f vec){
 
   int leftFirst = obj1->getLeftTop().x;
   int topFirst = obj1->getLeftTop().y;
@@ -18,10 +18,10 @@ bool Handler::collistionCourse(std::shared_ptr<GameObject> obj1, std::shared_ptr
 }
 
 
-bool Handler::collistionWithEnemy(std::shared_ptr<GameObject> player, std::vector<std::shared_ptr<GameObject>> enemies, sf::Vector2f direction){
+bool Handler::collistionWithEnemy(GameObject* player, std::vector<std::unique_ptr<GameObject>> &enemies, sf::Vector2f direction){
 
-  for(std::shared_ptr<GameObject> enemy : enemies){
-    if (collistionCourse(player, enemy, direction)) {
+  for(std::unique_ptr<GameObject>& enemy : enemies){
+    if (collistionCourse(player, enemy.get(), direction)) {
       return true;
     }
   }
@@ -29,7 +29,7 @@ bool Handler::collistionWithEnemy(std::shared_ptr<GameObject> player, std::vecto
 }
 
 
-void Handler::handleMovement(std::shared_ptr<GameObject> player, std::vector<std::shared_ptr<GameObject>> enemies){
+void Handler::handleMovement(GameObject* player, std::vector<std::unique_ptr<GameObject>> &enemies){
 
   if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left) and player->getPosition().x > 0)
     and !collistionWithEnemy(player, enemies, sf::Vector2f(-this->movementSpeed, 0)))

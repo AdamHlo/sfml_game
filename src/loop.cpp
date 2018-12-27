@@ -41,7 +41,7 @@ void Loop::run(){
     }
     window.clear();
 
-    handler.handleMovement(table.player, table.enemies);
+    handler.handleMovement(table.player.get(), table.enemies);
 
     window.draw(*table.player->sprite);
     window.draw(*table.enemies[0]->sprite);
