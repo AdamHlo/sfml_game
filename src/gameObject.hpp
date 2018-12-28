@@ -25,8 +25,8 @@ public:
 
   void setPosition(sf::Vector2f vec);
 
-  std::unique_ptr<sf::Texture> texture;
-  std::unique_ptr<sf::Sprite> sprite;
+  sf::Texture texture;
+  sf::Sprite sprite;
 
 };
 
