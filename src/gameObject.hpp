@@ -3,9 +3,9 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <string>
+#include <memory>
 
-class GameObject{
-
+class GameObject {
 public:
 
   GameObject(std::string filePath);

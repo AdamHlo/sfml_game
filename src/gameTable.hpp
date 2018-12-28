@@ -4,16 +4,16 @@
 #include "gameObject.hpp"
 #include <vector>
 #include <string>
+#include <memory>
 
-class GameTable{
-
+class GameTable {
 public:
 
   GameTable();
 
-  GameObject player;
+  std::unique_ptr<GameObject> player;
 
-  std::vector<GameObject> enemies;
+  std::vector<std::unique_ptr<GameObject>> enemies;
 
 };
 
