@@ -5,8 +5,7 @@
 #include <memory>
 
 
-class Handler{
-
+class Handler {
 public:
 
   bool collistionCourse(GameObject* obj1, GameObject* obj2, sf::Vector2f vec);

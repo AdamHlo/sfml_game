@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 
-void Loop::run(){
+void Loop::run() {
   // Create the main window
   sf::RenderWindow window(sf::VideoMode(1600, 900), "Game");
   // Load game sprites
@@ -27,14 +27,13 @@ void Loop::run(){
   sf::Clock clock;
 
 
-  while (window.isOpen()){
+  while (window.isOpen()) {
 
     sf::sleep(t);
     // Process events
     sf::Event event;
 
-    while (window.pollEvent(event))
-    {
+    while (window.pollEvent(event)) {
         // Close window: exit
         if (event.type == sf::Event::Closed)
             window.close();

@@ -2,7 +2,6 @@
 #define LOOP_H
 
 class Loop{
-
 public:
 
   void run();

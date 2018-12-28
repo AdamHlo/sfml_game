@@ -1,6 +1,6 @@
 #include "loop.hpp"
 
-int main(){
+int main() {
   Loop loop = Loop();
   loop.run();
   return 0;

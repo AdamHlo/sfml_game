@@ -6,8 +6,7 @@
 #include <string>
 #include <memory>
 
-class GameTable{
-
+class GameTable {
 public:
 
   GameTable();
