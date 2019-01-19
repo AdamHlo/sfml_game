@@ -14,9 +14,13 @@ public:
 
   void handleMovement(GameObject* player, std::vector<std::unique_ptr<GameObject>> &enemies);
 
+  Handler(int height, int width);
+
 private:
 
   int movementSpeed = 5;
+  int height;
+  int width;
 
 };
 

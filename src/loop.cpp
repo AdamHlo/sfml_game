@@ -9,6 +9,9 @@
 void Loop::run() {
   // Create the main window
   sf::RenderWindow window(sf::VideoMode(1600, 900), "Game");
+  // initialize view
+  sf::View view;
+  view.reset(sf::FloatRect(0, 0, 1600, 900));
   // Load game sprites
   GameTable table = GameTable();
   // Load a music to play
@@ -21,7 +24,7 @@ void Loop::run() {
   table.enemies[0]->setPosition(sf::Vector2f(200, 200));
   table.enemies[1]->setPosition(sf::Vector2f(1200, 350));
 
-  Handler handler = Handler();
+  Handler handler = Handler(2400, 1800);
 
   sf::Time t = sf::milliseconds(5);
   sf::Clock clock;
@@ -39,9 +42,10 @@ void Loop::run() {
             window.close();
     }
     window.clear();
-
     handler.handleMovement(table.player.get(), table.enemies);
+    view.setCenter(table.player->getPosition());
 
+    window.setView(view);
     window.draw(table.player->sprite);
     window.draw(table.enemies[0]->sprite);
     window.draw(table.enemies[1]->sprite);
