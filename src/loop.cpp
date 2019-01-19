@@ -43,7 +43,7 @@ void Loop::run() {
     }
     window.clear();
     handler.handleMovement(table.player.get(), table.enemies);
-    view.setCenter(table.player->getPosition());
+    view.setCenter(table.player->getCenter());
 
     window.setView(view);
     window.draw(table.player->sprite);
