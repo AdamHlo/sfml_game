@@ -14,6 +14,9 @@ sf::Vector2f  GameObject::getPosition() {
   return sprite.getPosition();
 }
 
+sf::Vector2f GameObject::getCenter() {
+  return sf::Vector2f(sprite.getPosition().x + sprite.getTextureRect().width / 2, sprite.getPosition().y + sprite.getTextureRect().height / 2);
+}
 
 sf::IntRect GameObject::getTextureRect() {
   return sprite.getTextureRect();

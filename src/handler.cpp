@@ -4,6 +4,12 @@
 #include <memory>
 
 
+Handler::Handler(int height, int width) {
+  this->height = height;
+  this->width = width;
+}
+
+
 bool Handler::collistionCourse(GameObject* obj1, GameObject* obj2, sf::Vector2f vec) {
   int leftFirst = obj1->getLeftTop().x;
   int topFirst = obj1->getLeftTop().y;
@@ -35,7 +41,7 @@ void Handler::handleMovement(GameObject* player, std::vector<std::unique_ptr<Gam
   {
     player->move(sf::Vector2f(-this->movementSpeed, 0));
   }
-  if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Right) and (player->getPosition().x + player->getTextureRect().width < 1600))
+  if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Right) and (player->getPosition().x + player->getTextureRect().width < width))
     and !collistionWithEnemy(player, enemies, sf::Vector2f(this->movementSpeed, 0)))
   {
     player->move(sf::Vector2f(this->movementSpeed, 0));
@@ -45,7 +51,7 @@ void Handler::handleMovement(GameObject* player, std::vector<std::unique_ptr<Gam
   {
     player->move(sf::Vector2f(0, -this->movementSpeed));
   }
-  if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Down) and (player->getPosition().y + player->getTextureRect().height) < 900)
+  if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Down) and (player->getPosition().y + player->getTextureRect().height) < height)
     and !collistionWithEnemy(player, enemies, sf::Vector2f(0, this->movementSpeed)))
   {
     player->move(sf::Vector2f(0, this->movementSpeed));

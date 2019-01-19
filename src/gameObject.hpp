@@ -18,6 +18,8 @@ public:
 
   sf::Vector2f getPosition();
 
+  sf::Vector2f getCenter();
+
   sf::IntRect getTextureRect();
 
   void move(sf::Vector2f vec);
