@@ -23,8 +23,9 @@ void Loop::run() {
   table.player->setPosition(sf::Vector2f(800, 450));
   table.enemies[0]->setPosition(sf::Vector2f(200, 200));
   table.enemies[1]->setPosition(sf::Vector2f(1200, 350));
+  table.enemies[2]->setPosition(sf::Vector2f(400, 650));
 
-  Handler handler = Handler(2400, 1800, 20);
+  Handler handler = Handler(2400, 1800, -2570);
 
   sf::Time t = sf::milliseconds(5);
   sf::Clock clock;
@@ -51,6 +52,7 @@ void Loop::run() {
     window.draw(table.player->sprite);
     window.draw(table.enemies[0]->sprite);
     window.draw(table.enemies[1]->sprite);
+    window.draw(table.enemies[2]->sprite);
     window.display();
   }
 }

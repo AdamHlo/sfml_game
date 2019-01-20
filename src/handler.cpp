@@ -63,7 +63,7 @@ void Handler::handleMovement(GameObject *player,
   if (!collistionWithEnemy(player, enemies, fall_vector) and
       !collisionWithBoundary(player, fall_vector)) {
     player->move(fall_vector);
-    player->changeVelocity(-(delta_t * this->gravity));
+    player->changeVelocity(delta_t * this->gravity);
   } else {
     player->setVelocity(0);
   }
@@ -72,7 +72,7 @@ void Handler::handleMovement(GameObject *player,
 void Handler::handleJump(GameObject *player) {
   if (player->vertical_velocity == 0 and
       sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-    player->setVelocity(-50);
+    player->setVelocity(1200);
   }
 }
 
