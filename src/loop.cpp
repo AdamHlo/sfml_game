@@ -1,8 +1,8 @@
-#include "loop.hpp"
 #include "gameTable.hpp"
 #include "handler.hpp"
-#include <SFML/Graphics.hpp>
+#include "loop.hpp"
 #include <SFML/Audio.hpp>
+#include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
 
@@ -29,7 +29,6 @@ void Loop::run() {
   sf::Time t = sf::milliseconds(5);
   sf::Clock clock;
 
-
   while (window.isOpen()) {
 
     sf::sleep(t);
@@ -37,9 +36,9 @@ void Loop::run() {
     sf::Event event;
 
     while (window.pollEvent(event)) {
-        // Close window: exit
-        if (event.type == sf::Event::Closed)
-            window.close();
+      // Close window: exit
+      if (event.type == sf::Event::Closed)
+        window.close();
     }
     window.clear();
     handler.handleMovement(table.player.get(), table.enemies);
@@ -50,7 +49,5 @@ void Loop::run() {
     window.draw(table.enemies[0]->sprite);
     window.draw(table.enemies[1]->sprite);
     window.display();
-
   }
-
 }

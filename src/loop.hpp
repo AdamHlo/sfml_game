@@ -1,11 +1,9 @@
 #ifndef LOOP_H
 #define LOOP_H
 
-class Loop{
+class Loop {
 public:
-
   void run();
-
 };
 
 #endif

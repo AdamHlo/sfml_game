@@ -2,12 +2,11 @@
 #define GAMEOBJECT_H
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
-#include <string>
 #include <memory>
+#include <string>
 
 class GameObject {
 public:
-
   GameObject(std::string filePath);
 
   GameObject();
@@ -28,7 +27,6 @@ public:
 
   sf::Texture texture;
   sf::Sprite sprite;
-
 };
 
 #endif
