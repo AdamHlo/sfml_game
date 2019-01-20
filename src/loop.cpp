@@ -1,8 +1,8 @@
-#include "loop.hpp"
 #include "gameTable.hpp"
 #include "handler.hpp"
-#include <SFML/Graphics.hpp>
+#include "loop.hpp"
 #include <SFML/Audio.hpp>
+#include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
 
@@ -23,12 +23,12 @@ void Loop::run() {
   table.player->setPosition(sf::Vector2f(800, 450));
   table.enemies[0]->setPosition(sf::Vector2f(200, 200));
   table.enemies[1]->setPosition(sf::Vector2f(1200, 350));
+  table.enemies[2]->setPosition(sf::Vector2f(400, 650));
 
-  Handler handler = Handler(2400, 1800);
+  Handler handler = Handler(2400, 1800, -2570);
 
   sf::Time t = sf::milliseconds(5);
   sf::Clock clock;
-
 
   while (window.isOpen()) {
 
@@ -37,20 +37,22 @@ void Loop::run() {
     sf::Event event;
 
     while (window.pollEvent(event)) {
-        // Close window: exit
-        if (event.type == sf::Event::Closed)
-            window.close();
+      // Close window: exit
+      if (event.type == sf::Event::Closed)
+        window.close();
     }
     window.clear();
-    handler.handleMovement(table.player.get(), table.enemies);
+    sf::Vector2f direction = handler.getMovementInput();
+    handler.handleJump(table.player.get());
+    handler.handleMovement(table.player.get(), table.enemies, direction,
+                           t.asSeconds());
     view.setCenter(table.player->getCenter());
 
     window.setView(view);
     window.draw(table.player->sprite);
     window.draw(table.enemies[0]->sprite);
     window.draw(table.enemies[1]->sprite);
+    window.draw(table.enemies[2]->sprite);
     window.display();
-
   }
-
 }

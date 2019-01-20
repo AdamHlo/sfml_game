@@ -2,12 +2,11 @@
 #define GAMEOBJECT_H
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
-#include <string>
 #include <memory>
+#include <string>
 
 class GameObject {
 public:
-
   GameObject(std::string filePath);
 
   GameObject();
@@ -26,9 +25,15 @@ public:
 
   void setPosition(sf::Vector2f vec);
 
+  void nullVelocity();
+
+  void changeVelocity(double delta_v);
+
+  void setVelocity(double v);
+
   sf::Texture texture;
   sf::Sprite sprite;
-
+  double vertical_velocity;
 };
 
 #endif
