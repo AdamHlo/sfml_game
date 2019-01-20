@@ -61,3 +61,8 @@ void Handler::handleMovement(
     player->move(sf::Vector2f(0, this->movementSpeed));
   }
 }
+
+void Handler::handleGravity(GameObject *player,
+                            std::vector<std::unique_ptr<GameObject>> &enemies) {
+
+}

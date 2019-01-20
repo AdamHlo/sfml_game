@@ -15,6 +15,10 @@ public:
   void handleMovement(GameObject *player,
                       std::vector<std::unique_ptr<GameObject>> &enemies);
 
+  void handleGravity(GameObject *player,
+                     std::vector<std::unique_ptr<GameObject>> &enemies,
+                     double time);
+
   Handler(int height, int width);
 
 private:

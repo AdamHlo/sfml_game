@@ -25,8 +25,13 @@ public:
 
   void setPosition(sf::Vector2f vec);
 
+  void nullVelocity();
+
+  void changeVelocity(double delta_v);
+
   sf::Texture texture;
   sf::Sprite sprite;
+  double vertical_velocity;
 };
 
 #endif

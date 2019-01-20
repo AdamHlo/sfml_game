@@ -23,6 +23,12 @@ void GameObject::move(sf::Vector2f vec) { sprite.move(vec); }
 
 void GameObject::setPosition(sf::Vector2f vec) { sprite.setPosition(vec); }
 
+void GameObject::nullVelocity() { this->vertical_velocity = 0; }
+
+void GameObject::changeVelocity(double delta_v) {
+  this->vertical_velocity += delta_v;
+}
+
 GameObject::GameObject(std::string filePath) {
   this->texture.loadFromFile(filePath);
   this->sprite.setTexture(texture);
