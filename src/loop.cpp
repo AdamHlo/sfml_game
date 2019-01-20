@@ -24,7 +24,7 @@ void Loop::run() {
   table.enemies[0]->setPosition(sf::Vector2f(200, 200));
   table.enemies[1]->setPosition(sf::Vector2f(1200, 350));
 
-  Handler handler = Handler(2400, 1800);
+  Handler handler = Handler(2400, 1800, 20);
 
   sf::Time t = sf::milliseconds(5);
   sf::Clock clock;
@@ -41,7 +41,10 @@ void Loop::run() {
         window.close();
     }
     window.clear();
-    handler.handleMovement(table.player.get(), table.enemies);
+    sf::Vector2f direction = handler.getMovementInput();
+    handler.handleJump(table.player.get());
+    handler.handleMovement(table.player.get(), table.enemies, direction,
+                           t.asSeconds());
     view.setCenter(table.player->getCenter());
 
     window.setView(view);

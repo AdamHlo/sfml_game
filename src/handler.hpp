@@ -13,18 +13,22 @@ public:
                            sf::Vector2f direction);
 
   void handleMovement(GameObject *player,
-                      std::vector<std::unique_ptr<GameObject>> &enemies);
+                      std::vector<std::unique_ptr<GameObject>> &enemies,
+                      sf::Vector2f direction, float delta_t);
 
-  void handleGravity(GameObject *player,
-                     std::vector<std::unique_ptr<GameObject>> &enemies,
-                     double time);
+  bool collisionWithBoundary(GameObject *player, sf::Vector2f direction);
 
-  Handler(int height, int width);
+  sf::Vector2f getMovementInput();
+
+  void handleJump(GameObject *player);
+
+  Handler(int height, int width, double gravity);
 
 private:
   int movementSpeed = 5;
   int height;
   int width;
+  double gravity;
 };
 
 #endif

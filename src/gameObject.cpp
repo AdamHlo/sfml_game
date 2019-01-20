@@ -29,6 +29,8 @@ void GameObject::changeVelocity(double delta_v) {
   this->vertical_velocity += delta_v;
 }
 
+void GameObject::setVelocity(double v) { this->vertical_velocity = v; }
+
 GameObject::GameObject(std::string filePath) {
   this->texture.loadFromFile(filePath);
   this->sprite.setTexture(texture);

@@ -29,6 +29,8 @@ public:
 
   void changeVelocity(double delta_v);
 
+  void setVelocity(double v);
+
   sf::Texture texture;
   sf::Sprite sprite;
   double vertical_velocity;
