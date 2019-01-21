@@ -22,13 +22,14 @@ public:
 
   void handleJump(GameObject *player);
 
-  Handler(int height, int width, double gravity);
+  Handler(int height, int width, double gravity, double jumpVelocity);
 
 private:
   int movementSpeed = 5;
   int height;
   int width;
   double gravity;
+  double jumpVelocity;
 };
 
 #endif
