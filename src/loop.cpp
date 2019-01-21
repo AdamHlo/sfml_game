@@ -25,7 +25,7 @@ void Loop::run() {
   table.enemies[1]->setPosition(sf::Vector2f(1200, 350));
   table.enemies[2]->setPosition(sf::Vector2f(400, 650));
 
-  Handler handler = Handler(2400, 1800, -2570, 1600);
+  Handler handler = Handler(2400, 1800, -11570, 2600);
 
   sf::Time t = sf::milliseconds(5);
   sf::Clock clock;
