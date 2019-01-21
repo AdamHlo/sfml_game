@@ -38,10 +38,10 @@ bool Handler::collistionWithEnemy(
 
 bool Handler::collisionWithBoundary(GameObject *player,
                                     sf::Vector2f direction) {
-  if (player->getPosition().x + direction.x > 0 or
+  if (player->getPosition().x + direction.x > 800 or
       player->getPosition().x + player->getTextureRect().width + direction.x <
           this->width or
-      player->getPosition().y + direction.y > 0 or
+      player->getPosition().y + direction.y > 450 or
       player->getPosition().y + player->getTextureRect().height + direction.y <
           this->height) {
     return false;

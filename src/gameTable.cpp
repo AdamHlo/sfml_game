@@ -3,11 +3,23 @@
 #include <memory>
 
 GameTable::GameTable() {
-  this->player = std::unique_ptr<GameObject>(new GameObject("data/1B.png"));
+  this->player = std::unique_ptr<GameObject>(new GameObject("data/player.png"));
   this->enemies.push_back(
-      std::unique_ptr<GameObject>(new GameObject("data/7.png")));
+      std::unique_ptr<GameObject>(new GameObject("data/platform.png")));
   this->enemies.push_back(
-      std::unique_ptr<GameObject>(new GameObject("data/sprite.png")));
+      std::unique_ptr<GameObject>(new GameObject("data/platform.png")));
   this->enemies.push_back(
-      std::unique_ptr<GameObject>(new GameObject("data/horizontal_line.png")));
+      std::unique_ptr<GameObject>(new GameObject("data/platform.png")));
+  this->enemies.push_back(
+      std::unique_ptr<GameObject>(new GameObject("data/platform.png")));
+  this->enemies.push_back(
+      std::unique_ptr<GameObject>(new GameObject("data/platform.png")));
+  this->enemies.push_back(
+      std::unique_ptr<GameObject>(new GameObject("data/platform.png")));
+  this->enemies.push_back(
+      std::unique_ptr<GameObject>(new GameObject("data/platform.png")));
+  this->enemies.push_back(
+      std::unique_ptr<GameObject>(new GameObject("data/platform.png")));
+  this->enemies.push_back(
+      std::unique_ptr<GameObject>(new GameObject("data/platform.png")));
 }
