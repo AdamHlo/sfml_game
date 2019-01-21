@@ -3,10 +3,11 @@
 #include <iostream>
 #include <memory>
 
-Handler::Handler(int height, int width, double gravity) {
+Handler::Handler(int height, int width, double gravity, double jumpVelocity) {
   this->height = height;
   this->width = width;
   this->gravity = gravity;
+  this->jumpVelocity = jumpVelocity;
 }
 
 bool Handler::collistionCourse(GameObject *obj1, GameObject *obj2,
@@ -72,7 +73,7 @@ void Handler::handleMovement(GameObject *player,
 void Handler::handleJump(GameObject *player) {
   if (player->vertical_velocity == 0 and
       sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-    player->setVelocity(1200);
+    player->setVelocity(this->jumpVelocity);
   }
 }
 
