@@ -21,7 +21,7 @@ void Loop::run() {
   music.setLoop(true);
   music.play();
   table.player->setPosition(sf::Vector2f(1600, 1000));
-  table.enemies[0]->setPosition(sf::Vector2f(1500, 1100));
+  table.enemies[0]->setPosition(sf::Vector2f(1100, 1180));
   table.enemies[1]->setPosition(sf::Vector2f(1500, 1300));
   table.enemies[2]->setPosition(sf::Vector2f(1800, 970));
   table.enemies[3]->setPosition(sf::Vector2f(1000, 945));
@@ -40,17 +40,6 @@ void Loop::run() {
 
   sf::Time t = sf::milliseconds(5);
   sf::Clock clock;
-
-  window.draw(background_sprite);
-  window.draw(table.enemies[0]->sprite);
-  window.draw(table.enemies[1]->sprite);
-  window.draw(table.enemies[2]->sprite);
-  window.draw(table.enemies[3]->sprite);
-  window.draw(table.enemies[4]->sprite);
-  window.draw(table.enemies[5]->sprite);
-  window.draw(table.enemies[6]->sprite);
-  window.draw(table.enemies[7]->sprite);
-  window.draw(table.enemies[8]->sprite);
 
   while (window.isOpen()) {
 
@@ -71,6 +60,16 @@ void Loop::run() {
     view.setCenter(table.player->getCenter());
 
     window.setView(view);
+    window.draw(background_sprite);
+    window.draw(table.enemies[0]->sprite);
+    window.draw(table.enemies[1]->sprite);
+    window.draw(table.enemies[2]->sprite);
+    window.draw(table.enemies[3]->sprite);
+    window.draw(table.enemies[4]->sprite);
+    window.draw(table.enemies[5]->sprite);
+    window.draw(table.enemies[6]->sprite);
+    window.draw(table.enemies[7]->sprite);
+    window.draw(table.enemies[8]->sprite);
     window.draw(table.player->sprite);
     window.display();
   }
