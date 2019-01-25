@@ -21,15 +21,16 @@ void Loop::run() {
   music.setLoop(true);
   music.play();
   table.player->setPosition(sf::Vector2f(1600, 1000));
-  table.enemies[0]->setPosition(sf::Vector2f(1100, 1180));
-  table.enemies[1]->setPosition(sf::Vector2f(1500, 1300));
-  table.enemies[2]->setPosition(sf::Vector2f(1800, 970));
-  table.enemies[3]->setPosition(sf::Vector2f(1000, 945));
-  table.enemies[4]->setPosition(sf::Vector2f(1250, 700));
-  table.enemies[5]->setPosition(sf::Vector2f(1350, 500));
-  table.enemies[6]->setPosition(sf::Vector2f(700, 700));
-  table.enemies[7]->setPosition(sf::Vector2f(2000, 750));
-  table.enemies[8]->setPosition(sf::Vector2f(2200, 550));
+  table.gameObjects[0]->setPosition(sf::Vector2f(1100, 1180));
+  table.gameObjects[1]->setPosition(sf::Vector2f(1500, 1300));
+  table.gameObjects[2]->setPosition(sf::Vector2f(1800, 970));
+  table.gameObjects[3]->setPosition(sf::Vector2f(1000, 945));
+  table.gameObjects[4]->setPosition(sf::Vector2f(1250, 700));
+  table.gameObjects[5]->setPosition(sf::Vector2f(1350, 500));
+  table.gameObjects[6]->setPosition(sf::Vector2f(700, 700));
+  table.gameObjects[7]->setPosition(sf::Vector2f(2000, 750));
+  table.gameObjects[8]->setPosition(sf::Vector2f(2200, 550));
+  table.gameObjects[9]->setPosition(sf::Vector2f(1500, 350));
 
   sf::Texture background;
   sf::Sprite background_sprite;
@@ -55,21 +56,22 @@ void Loop::run() {
     window.clear();
     sf::Vector2f direction = handler.getMovementInput();
     handler.handleJump(table.player.get());
-    handler.handleMovement(table.player.get(), table.enemies, direction,
+    handler.handleMovement(table.player.get(), table.gameObjects, direction,
                            t.asSeconds());
     view.setCenter(table.player->getCenter());
 
     window.setView(view);
     window.draw(background_sprite);
-    window.draw(table.enemies[0]->sprite);
-    window.draw(table.enemies[1]->sprite);
-    window.draw(table.enemies[2]->sprite);
-    window.draw(table.enemies[3]->sprite);
-    window.draw(table.enemies[4]->sprite);
-    window.draw(table.enemies[5]->sprite);
-    window.draw(table.enemies[6]->sprite);
-    window.draw(table.enemies[7]->sprite);
-    window.draw(table.enemies[8]->sprite);
+    window.draw(table.gameObjects[0]->sprite);
+    window.draw(table.gameObjects[1]->sprite);
+    window.draw(table.gameObjects[2]->sprite);
+    window.draw(table.gameObjects[3]->sprite);
+    window.draw(table.gameObjects[4]->sprite);
+    window.draw(table.gameObjects[5]->sprite);
+    window.draw(table.gameObjects[6]->sprite);
+    window.draw(table.gameObjects[7]->sprite);
+    window.draw(table.gameObjects[8]->sprite);
+    window.draw(table.gameObjects[9]->sprite);
     window.draw(table.player->sprite);
     window.display();
   }

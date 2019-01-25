@@ -8,12 +8,12 @@ class Handler {
 public:
   bool collistionCourse(GameObject *obj1, GameObject *obj2, sf::Vector2f vec);
 
-  bool collistionWithEnemy(GameObject *player,
-                           std::vector<std::unique_ptr<GameObject>> &enemies,
+  bool collision(GameObject *player,
+                           std::vector<std::unique_ptr<GameObject>> &gameObjects,
                            sf::Vector2f direction);
 
   void handleMovement(GameObject *player,
-                      std::vector<std::unique_ptr<GameObject>> &enemies,
+                      std::vector<std::unique_ptr<GameObject>> &gameObjects,
                       sf::Vector2f direction, float delta_t);
 
   bool collisionWithBoundary(GameObject *player, sf::Vector2f direction);

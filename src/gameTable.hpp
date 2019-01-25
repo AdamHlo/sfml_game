@@ -12,6 +12,8 @@ public:
 
   std::unique_ptr<GameObject> player;
 
+  std::vector<std::unique_ptr<GameObject>> gameObjects;
+
   std::vector<std::unique_ptr<GameObject>> enemies;
 };
 

@@ -25,11 +25,11 @@ bool Handler::collistionCourse(GameObject *obj1, GameObject *obj2,
           (rightFirst + vec.x > left and leftFirst + vec.x < right));
 }
 
-bool Handler::collistionWithEnemy(
-    GameObject *player, std::vector<std::unique_ptr<GameObject>> &enemies,
+bool Handler::collision(
+    GameObject *player, std::vector<std::unique_ptr<GameObject>> &gameObjects,
     sf::Vector2f direction) {
-  for (std::unique_ptr<GameObject> &enemy : enemies) {
-    if (collistionCourse(player, enemy.get(), direction)) {
+  for (std::unique_ptr<GameObject> &game_object : gameObjects) {
+    if (collistionCourse(player, game_object.get(), direction)) {
       return true;
     }
   }
@@ -38,22 +38,23 @@ bool Handler::collistionWithEnemy(
 
 bool Handler::collisionWithBoundary(GameObject *player,
                                     sf::Vector2f direction) {
-  if (player->getPosition().x + direction.x > 800 or
-      player->getPosition().x + player->getTextureRect().width + direction.x <
-          this->width or
-      player->getPosition().y + direction.y > 450 or
-      player->getPosition().y + player->getTextureRect().height + direction.y <
-          this->height) {
+  int left = player->getLeftTop().x;
+  int top = player->getLeftTop().y;
+  int right = player->getRightBottom().x;
+  int bottom = player->getRightBottom().y;
+  if (left + direction.x > 0 or top + direction.y > 0 or
+      right + direction.x < 4000 or bottom + direction.y < 2700) {
     return false;
   } else {
+    std::cout << "collision with boundary" << std::endl;
     return true;
   }
 }
 
 void Handler::handleMovement(GameObject *player,
-                             std::vector<std::unique_ptr<GameObject>> &enemies,
+                             std::vector<std::unique_ptr<GameObject>> &gameObjects,
                              sf::Vector2f direction, float delta_t) {
-  if (!collistionWithEnemy(player, enemies, direction) and
+  if (!collision(player, gameObjects, direction) and
       !collisionWithBoundary(player, direction)) {
     player->move(direction);
   }
@@ -61,7 +62,7 @@ void Handler::handleMovement(GameObject *player,
   sf::Vector2f fall_vector =
       sf::Vector2f(0, delta_t * (-player->vertical_velocity));
 
-  if (!collistionWithEnemy(player, enemies, fall_vector) and
+  if (!collision(player, gameObjects, fall_vector) and
       !collisionWithBoundary(player, fall_vector)) {
     player->move(fall_vector);
     player->changeVelocity(delta_t * this->gravity);

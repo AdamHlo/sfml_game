@@ -33,7 +33,7 @@ public:
 
   sf::Texture texture;
   sf::Sprite sprite;
-  double vertical_velocity;
+  float vertical_velocity;
 };
 
 #endif
