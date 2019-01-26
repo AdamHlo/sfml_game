@@ -20,6 +20,7 @@ void Loop::run() {
   // Play the music
   music.setLoop(true);
   music.play();
+  music.pause();
   table.player->setPosition(sf::Vector2f(1600, 1000));
   table.gameObjects[0]->setPosition(sf::Vector2f(1100, 1180));
   table.gameObjects[1]->setPosition(sf::Vector2f(1500, 1300));
@@ -38,7 +39,7 @@ void Loop::run() {
   background_sprite.setTexture(background);
 
   Handler handler =
-      Handler(background.getSize().x, background.getSize().y, -11570, 2600);
+      Handler(background.getSize().y, background.getSize().x, -11570, 2600);
 
   sf::Time t = sf::milliseconds(5);
   sf::Clock clock;

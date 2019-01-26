@@ -6,7 +6,7 @@
 
 class Handler {
 public:
-  bool collistionCourse(GameObject *obj1, GameObject *obj2, sf::Vector2f vec);
+  bool collisionCourse(GameObject *obj1, GameObject *obj2, sf::Vector2f vec);
 
   bool collision(GameObject *player,
                            std::vector<std::unique_ptr<GameObject>> &gameObjects,

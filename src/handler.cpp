@@ -1,6 +1,5 @@
 #include "handler.hpp"
 #include <SFML/Graphics.hpp>
-#include <iostream>
 #include <memory>
 
 Handler::Handler(int height, int width, double gravity, double jumpVelocity) {
@@ -10,8 +9,8 @@ Handler::Handler(int height, int width, double gravity, double jumpVelocity) {
   this->jumpVelocity = jumpVelocity;
 }
 
-bool Handler::collistionCourse(GameObject *obj1, GameObject *obj2,
-                               sf::Vector2f vec) {
+bool Handler::collisionCourse(GameObject *obj1, GameObject *obj2,
+                              sf::Vector2f vec) {
   int leftFirst = obj1->getLeftTop().x;
   int topFirst = obj1->getLeftTop().y;
   int rightFirst = obj1->getRightBottom().x;
@@ -29,7 +28,7 @@ bool Handler::collision(GameObject *player,
                         std::vector<std::unique_ptr<GameObject>> &gameObjects,
                         sf::Vector2f direction) {
   for (std::unique_ptr<GameObject> &game_object : gameObjects) {
-    if (collistionCourse(player, game_object.get(), direction)) {
+    if (collisionCourse(player, game_object.get(), direction)) {
       return true;
     }
   }
@@ -42,8 +41,8 @@ bool Handler::collisionWithBoundary(GameObject *player,
   int top = player->getLeftTop().y;
   int right = player->getRightBottom().x;
   int bottom = player->getRightBottom().y;
-  return !(left + direction.x > 0 or top + direction.y > 0 or
-           right + direction.x < this->width or
+  return !(left + direction.x > 0 and top + direction.y > 0 and
+           right + direction.x < this->width and
            bottom + direction.y < this->height);
 }
 

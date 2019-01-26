@@ -21,19 +21,36 @@ public:
 
   sf::IntRect getTextureRect();
 
-  void move(sf::Vector2f vec);
+  sf::Texture texture;
+  sf::Sprite sprite;
+};
 
-  void setPosition(sf::Vector2f vec);
-
-  void nullVelocity();
-
+class Player : public GameObject {
+public:
   void changeVelocity(double delta_v);
 
   void setVelocity(double v);
 
-  sf::Texture texture;
-  sf::Sprite sprite;
+  void increaseCounter(int dst);
+
+  void resolveAnimation();
+
+  std::vector<std::unique_ptr<sf::Texture>> textures;
+  float vertical_velocity;
+  int move_counter;
+};
+
+class Enemy : public GameObject {
+public:
+  void changeVelocity(double delta_v);
+
+  void setVelocity(double v);
+
+  void resolveAnimation();
+
   float vertical_velocity;
 };
+
+class EnvironmentalObject : public GameObject {};
 
 #endif
