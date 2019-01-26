@@ -25,9 +25,9 @@ bool Handler::collistionCourse(GameObject *obj1, GameObject *obj2,
           (rightFirst + vec.x > left and leftFirst + vec.x < right));
 }
 
-bool Handler::collision(
-    GameObject *player, std::vector<std::unique_ptr<GameObject>> &gameObjects,
-    sf::Vector2f direction) {
+bool Handler::collision(GameObject *player,
+                        std::vector<std::unique_ptr<GameObject>> &gameObjects,
+                        sf::Vector2f direction) {
   for (std::unique_ptr<GameObject> &game_object : gameObjects) {
     if (collistionCourse(player, game_object.get(), direction)) {
       return true;
@@ -42,18 +42,14 @@ bool Handler::collisionWithBoundary(GameObject *player,
   int top = player->getLeftTop().y;
   int right = player->getRightBottom().x;
   int bottom = player->getRightBottom().y;
-  if (left + direction.x > 0 or top + direction.y > 0 or
-      right + direction.x < 4000 or bottom + direction.y < 2700) {
-    return false;
-  } else {
-    std::cout << "collision with boundary" << std::endl;
-    return true;
-  }
+  return !(left + direction.x > 0 or top + direction.y > 0 or
+           right + direction.x < this->width or
+           bottom + direction.y < this->height);
 }
 
-void Handler::handleMovement(GameObject *player,
-                             std::vector<std::unique_ptr<GameObject>> &gameObjects,
-                             sf::Vector2f direction, float delta_t) {
+void Handler::handleMovement(
+    GameObject *player, std::vector<std::unique_ptr<GameObject>> &gameObjects,
+    sf::Vector2f direction, float delta_t) {
   if (!collision(player, gameObjects, direction) and
       !collisionWithBoundary(player, direction)) {
     player->move(direction);

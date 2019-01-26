@@ -37,7 +37,8 @@ void Loop::run() {
   background.loadFromFile("data/gameBackgroundNew.png");
   background_sprite.setTexture(background);
 
-  Handler handler = Handler(3200, 2250, -11570, 2600);
+  Handler handler =
+      Handler(background.getSize().x, background.getSize().y, -11570, 2600);
 
   sf::Time t = sf::milliseconds(5);
   sf::Clock clock;
