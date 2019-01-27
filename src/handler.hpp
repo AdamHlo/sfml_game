@@ -9,8 +9,8 @@ public:
   bool collisionCourse(GameObject *obj1, GameObject *obj2, sf::Vector2f vec);
 
   bool collision(GameObject *player,
-                           std::vector<std::unique_ptr<GameObject>> &gameObjects,
-                           sf::Vector2f direction);
+                 std::vector<std::unique_ptr<GameObject>> &gameObjects,
+                 sf::Vector2f direction);
 
   void handleMovement(GameObject *player,
                       std::vector<std::unique_ptr<GameObject>> &gameObjects,

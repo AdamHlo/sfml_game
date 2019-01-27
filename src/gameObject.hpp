@@ -33,19 +33,17 @@ class Player : public GameObject {
 public:
   Player();
 
-  void
-
-      void
-      changeVelocity(double delta_v);
+  void changeVelocity(double delta_v);
 
   void setVelocity(double v);
 
-  void increaseCounter(int dst);
+  void move(sf::Vector2f vec);
 
   void resolveAnimation();
 
   std::vector<std::unique_ptr<sf::Texture>> textures;
   float vertical_velocity;
+  int cycle_length;
   int move_counter;
 };
 
