@@ -13,6 +13,10 @@ public:
 
   sf::Vector2f getLeftTop();
 
+  void move(sf::Vector2f vec);
+
+  void setPosition(sf::Vector2f vec);
+
   sf::Vector2f getRightBottom();
 
   sf::Vector2f getPosition();
@@ -27,7 +31,12 @@ public:
 
 class Player : public GameObject {
 public:
-  void changeVelocity(double delta_v);
+  Player();
+
+  void
+
+      void
+      changeVelocity(double delta_v);
 
   void setVelocity(double v);
 
@@ -51,6 +60,9 @@ public:
   float vertical_velocity;
 };
 
-class EnvironmentalObject : public GameObject {};
+class EnvironmentalObject : public GameObject {
+public:
+  bool moving;
+};
 
-#endif
+#endif // ifndef GAMEOBJECT_H
