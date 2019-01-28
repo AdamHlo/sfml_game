@@ -20,10 +20,10 @@ void Loop::run() {
   // Play the music
   music.setLoop(true);
   music.play();
-  music.pause();
+  // music.pause();
   table.player->setPosition(sf::Vector2f(1600, 1000));
   table.gameObjects[0]->setPosition(sf::Vector2f(1100, 1180));
-  table.gameObjects[1]->setPosition(sf::Vector2f(1500, 1300));
+  table.gameObjects[1]->setPosition(sf::Vector2f(900, 1400));
   table.gameObjects[2]->setPosition(sf::Vector2f(1800, 970));
   table.gameObjects[3]->setPosition(sf::Vector2f(1000, 945));
   table.gameObjects[4]->setPosition(sf::Vector2f(1250, 700));
@@ -61,6 +61,8 @@ void Loop::run() {
     handler.handleMovement(table.player.get(), table.gameObjects, direction,
                            t.asSeconds());
     view.setCenter(table.player->getCenter());
+
+    table.player->resolveAnimation();
 
     window.setView(view);
     window.draw(background_sprite);

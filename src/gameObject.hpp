@@ -41,7 +41,7 @@ public:
 
   void resolveAnimation();
 
-  std::vector<std::unique_ptr<sf::Texture>> textures;
+  std::vector<sf::Image> textures;
   float vertical_velocity;
   int cycle_length;
   int move_counter;

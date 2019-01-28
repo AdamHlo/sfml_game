@@ -10,11 +10,11 @@ class GameTable {
 public:
   GameTable();
 
-  std::unique_ptr<GameObject> player;
+  std::unique_ptr<Player> player;
 
   std::vector<std::unique_ptr<GameObject>> gameObjects;
 
-  std::vector<std::unique_ptr<GameObject>> enemies;
+  // std::vector<std::unique_ptr<GameObject>> enemies;
 };
 
 #endif

@@ -8,19 +8,19 @@ class Handler {
 public:
   bool collisionCourse(GameObject *obj1, GameObject *obj2, sf::Vector2f vec);
 
-  bool collision(GameObject *player,
+  bool collision(Player *player,
                  std::vector<std::unique_ptr<GameObject>> &gameObjects,
                  sf::Vector2f direction);
 
-  void handleMovement(GameObject *player,
+  void handleMovement(Player *player,
                       std::vector<std::unique_ptr<GameObject>> &gameObjects,
                       sf::Vector2f direction, float delta_t);
 
-  bool collisionWithBoundary(GameObject *player, sf::Vector2f direction);
+  bool collisionWithBoundary(Player *player, sf::Vector2f direction);
 
   sf::Vector2f getMovementInput();
 
-  void handleJump(GameObject *player);
+  void handleJump(Player *player);
 
   Handler(int height, int width, double gravity, double jumpVelocity);
 

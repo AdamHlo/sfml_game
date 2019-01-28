@@ -24,7 +24,7 @@ bool Handler::collisionCourse(GameObject *obj1, GameObject *obj2,
           (rightFirst + vec.x > left and leftFirst + vec.x < right));
 }
 
-bool Handler::collision(GameObject *player,
+bool Handler::collision(Player *player,
                         std::vector<std::unique_ptr<GameObject>> &gameObjects,
                         sf::Vector2f direction) {
   for (std::unique_ptr<GameObject> &game_object : gameObjects) {
@@ -35,7 +35,7 @@ bool Handler::collision(GameObject *player,
   return false;
 }
 
-bool Handler::collisionWithBoundary(GameObject *player,
+bool Handler::collisionWithBoundary(Player *player,
                                     sf::Vector2f direction) {
   int left = player->getLeftTop().x;
   int top = player->getLeftTop().y;
@@ -47,7 +47,7 @@ bool Handler::collisionWithBoundary(GameObject *player,
 }
 
 void Handler::handleMovement(
-    GameObject *player, std::vector<std::unique_ptr<GameObject>> &gameObjects,
+    Player *player, std::vector<std::unique_ptr<GameObject>> &gameObjects,
     sf::Vector2f direction, float delta_t) {
   if (!collision(player, gameObjects, direction) and
       !collisionWithBoundary(player, direction)) {
@@ -66,7 +66,7 @@ void Handler::handleMovement(
   }
 }
 
-void Handler::handleJump(GameObject *player) {
+void Handler::handleJump(Player *player) {
   if (player->vertical_velocity == 0 and
       sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
     player->setVelocity(this->jumpVelocity);
