@@ -1,5 +1,6 @@
 #include "handler.hpp"
 #include <SFML/Graphics.hpp>
+#include <iostream>
 #include <memory>
 
 Handler::Handler(int height, int width, double gravity, double jumpVelocity) {
@@ -49,13 +50,20 @@ void Handler::handleMovement(
     Player *player, std::vector<std::unique_ptr<GameObject>> &gameObjects,
     sf::Vector2f direction, float delta_t) {
 
-  if (direction.x > 0) {
-    player->sprite.setScale({1, 1});
-  } else if (direction.x < 0) {
-    player->sprite.setScale({-1, 1});
-  }
+  int width = player->sprite.getTextureRect().width;
 
-  player->sprite.setTextureRect(player->current_rect);
+  if (direction.x > 0 and player->sprite.getScale() != sf::Vector2f(1, 1)) {
+    player->sprite.setOrigin(player->sprite.getLocalBounds().width, 0);
+    player->sprite.setScale(1, 1);
+    std::cout << player->sprite.getTextureRect().left << " "
+              << player->sprite.getTextureRect().width << std::endl;
+  } else if (direction.x < 0 and
+             player->sprite.getScale() != sf::Vector2f(-1, 1)) {
+    player->sprite.setOrigin(player->sprite.getLocalBounds().width, 0);
+    player->sprite.setScale(-1, 1);
+    std::cout << player->sprite.getTextureRect().left << " "
+              << player->sprite.getTextureRect().width << std::endl;
+  }
 
   if (!collision(player, gameObjects, direction) and
       !collisionWithBoundary(player, direction)) {
