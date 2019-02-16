@@ -35,8 +35,7 @@ bool Handler::collision(Player *player,
   return false;
 }
 
-bool Handler::collisionWithBoundary(Player *player,
-                                    sf::Vector2f direction) {
+bool Handler::collisionWithBoundary(Player *player, sf::Vector2f direction) {
   int left = player->getLeftTop().x;
   int top = player->getLeftTop().y;
   int right = player->getRightBottom().x;
@@ -49,6 +48,15 @@ bool Handler::collisionWithBoundary(Player *player,
 void Handler::handleMovement(
     Player *player, std::vector<std::unique_ptr<GameObject>> &gameObjects,
     sf::Vector2f direction, float delta_t) {
+
+  if (direction.x > 0) {
+    player->sprite.setScale({1, 1});
+  } else if (direction.x < 0) {
+    player->sprite.setScale({-1, 1});
+  }
+
+  player->sprite.setTextureRect(player->current_rect);
+
   if (!collision(player, gameObjects, direction) and
       !collisionWithBoundary(player, direction)) {
     player->move(direction);

@@ -39,9 +39,14 @@ public:
 
   void move(sf::Vector2f vec);
 
+  void mirrorTextures();
+
   void resolveAnimation();
 
   std::vector<sf::Image> textures;
+  sf::IntRect rect;
+  sf::IntRect flipped_rect;
+  sf::IntRect current_rect;
   float vertical_velocity;
   int cycle_length;
   int move_counter;

@@ -43,6 +43,10 @@ Player::Player() {
   this->textures[0].loadFromFile("data/p1.png");
   this->textures[1].loadFromFile("data/p2.png");
   this->textures[2].loadFromFile("data/p3.png");
+  this->rect = this->sprite.getTextureRect();
+  this->flipped_rect = sf::IntRect(this->rect.left, this->rect.top,
+                                   this->rect.width, this->rect.height);
+  this->current_rect = this->rect;
 }
 
 void Player::setVelocity(double v) { this->vertical_velocity = v; }
